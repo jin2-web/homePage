@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>개인 1차 프로젝트 personal1.html</title>
+    <link rel="stylesheet" href="../css/personal1.css" />
+  </head>
+  <body>
+    <section class="page s1">
+      <div class="content-box">
+        <h2>[슬라이드: AI 애니메이션 제작 워크플로우]</h2>
+        <ul>
+          <li>
+            <strong> 기획 & 스토리 :</strong> 주제선정, 세계관 구체화, 프롬프트
+            설계
+          </li>
+          <li>
+            <strong>영상화:</strong> 생성된 정지 이미지를 동적인 영상(Flow)으로
+            변환.
+          </li>
+          <li>
+            <strong>편집 & 사운드:</strong> 컷 편집, 영상 리듬 정리, 내레이션 및
+            효과음 보강.
+          </li>
+          <li>
+            <strong>최종 완성:</strong> 디테일 보정, 전체 퀄리티 조정 및 종합
+            렌더링.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="page s2">
+       <div class="roadmap-container">
+         <div class="roadmap-text title-text">AI워크플로우</div>
+         <div class="roadmap-text step1">기획스토리</div>
+         <div class="roadmap-text step2">시각화</div>
+         <div class="roadmap-text step3">영상화</div>
+         <div class="roadmap-text step4">편집</div>
+         <div class="roadmap-text step5">사운드</div>
+         <div class="roadmap-text step6">완성</div>
+       </div>  
+    </section>
+
+    
+    <section class="page">3</section>
+    <section class="page">4</section>
+    <section class="page">5</section>
+    <section class="page">6</section>
+    <section class="page">7</section>
+    <section class="page">8</section>
+    <section class="page">9</section>
+    <section class="page">10</section>
+    <section class="page">11</section>
+    <section class="page video-page">
+      <video class="bg-video" id="myvideo">
+        <source src="../video/peaceland.mp4"
+          type="video/mp4" />
+        브라이저가 video를 지원하지 않습니다.
+      </video>
+      <div class="video-controls">
+        <button id="playBtn"> ▶ play </button>
+        <button id="pauseBtn"> ⏸ pasue </button>
+        <button id="replayBtn"> 🔄 replay </button>
+      </div>  
+    </section>
+    <script>
+       const video = document.getElementById('myvideo');
+       document.getElementById("playBtn").addEventListener("click",()=> {video.play();});
+       document.getElementById("pauseBtn").addEventListener('click',()=>{video.pause();});
+       document.getElementById("replayBtn").addEventListener('click',()=>{ video.currentTime = 0;
+        video.play();}); 
+    </script>
+  </body>
+</html>
