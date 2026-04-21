@@ -53,24 +53,46 @@
     <section class="page">9</section>
     <section class="page">10</section>
     <section class="page">11</section>
-    <section class="page video-page">
-      <video class="bg-video" id="myvideo">
-        <source src="https://youtu.be/tXhPL_tDxH8"
-          type="video/mp4" />
-        브라이저가 video를 지원하지 않습니다.
-      </video>
-      <div class="video-controls">
-        <button id="playBtn"> ▶ play </button>
-        <button id="pauseBtn"> ⏸ pasue </button>
-        <button id="replayBtn"> 🔄 replay </button>
-      </div>  
-    </section>
-    <script>
-       const video = document.getElementById('myvideo');
-       document.getElementById("playBtn").addEventListener("click",()=> {video.play();});
-       document.getElementById("pauseBtn").addEventListener('click',()=>{video.pause();});
-       document.getElementById("replayBtn").addEventListener('click',()=>{ video.currentTime = 0;
-        video.play();}); 
-    </script>
+<section class="page video-page">
+  <div class="video-wrapper">
+    <iframe
+      id="myIframe"
+      src="https://www.youtube.com/embed/tXhPL_tDxH8?enablejsapi=1"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <div class="video-controls">
+    <button id="playBtn">▶ play</button>
+    <button id="pauseBtn">⏸ pause</button>
+    <button id="replayBtn">🔄 replay</button>
+  </div>
+</section>
+
+<!-- YouTube IFrame API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  let player;
+
+  // API 준비되면 자동 호출
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('myIframe', {
+      events: {
+        onReady: () => console.log('플레이어 준비 완료')
+      }
+    });
+  }
+
+  document.getElementById('playBtn').addEventListener('click', () => player.playVideo());
+  document.getElementById('pauseBtn').addEventListener('click', () => player.pauseVideo());
+  document.getElementById('replayBtn').addEventListener('click', () => {
+    player.seekTo(0);
+    player.playVideo();
+  });
+</script>
+
   </body>
 </html>
